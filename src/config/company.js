@@ -10,9 +10,9 @@ module.exports = {
   operatorLicenseValidUntil: '06/05/2035',
 
   // Not provided yet — fill these in (they stay editable on the contract pages too)
-  capital: '',                    // Capital social (€)
+  capital: '500',                    // Capital social (€)
   descaracterizadoLicense: '',    // Nº licença Descaracterizado
   descaracterizadoValidUntil: '',
   insurancePolicy: '',            // Nº apólice de responsabilidade civil
-  manager: '',                    // Gerente (used in the Bolt comodato)
+  manager: 'MD Sahin Miah',                    // Gerente (used in the Bolt comodato)
 };
