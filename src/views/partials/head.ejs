@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= company.brand %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="brand"><span class="dot"></span><%= company.brand %></div>
+  </div>
+  <div class="overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="brand sidebar-brand"><span class="dot"></span><%= company.brand %></div>
+    <a class="nav-item" href="/">Dashboard</a>
+    <a class="nav-item" href="/drivers">Drivers</a>
+    <a class="nav-item" href="/cars">Cars</a>
+    <a class="nav-item" href="/settlements">Weekly Settlement</a>
+    <a class="nav-item" href="/iva-refunds">IVA Refunds</a>
+    <a class="nav-item" href="/insurance">Insurance</a>
+    <a class="nav-item" href="/maintenance">Maintenance</a>
+    <a class="nav-item" href="/accidents">Accident History</a>
+    <a class="nav-item" href="/expenses">Expenses</a>
+    <a class="nav-item" href="/custom-payments">Custom Payments</a>
+    <a class="nav-item" href="/export">Export Records</a>
+    <a class="nav-item" href="/contracts">Gerar Contrato</a>
+    <form method="POST" action="/logout" style="padding: 8px 16px;">
+      <button type="submit" class="nav-item" style="width:100%; text-align:left; background:none; border:none; cursor:pointer; font: inherit;">Logout</button>
+    </form>
+  </div>
+  <div class="main">

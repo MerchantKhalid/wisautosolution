@@ -1,0 +1,34 @@
+<%- include('../partials/head') %>
+
+<h1>Drivers</h1>
+<div class="meta"><%= drivers.length %> total</div>
+
+<% if (error) { %><div class="error"><%= error %></div><% } %>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3>All Drivers</h3>
+    <a class="btn" href="/drivers/new">+ Add Driver</a>
+  </div>
+  <table>
+    <tr><th>Name</th><th>Phone</th><th>Car Ownership</th><th>Assigned Car</th><th>Status</th><th></th></tr>
+    <% drivers.forEach(d => { %>
+      <tr>
+        <td><a href="/drivers/<%= d.id %>"><%= d.name %></a></td>
+        <td><%= d.phone || '-' %></td>
+        <td><%= d.carOwnership === 'OWNED' ? 'Owned Car' : (d.carOwnership === 'RENT' ? 'Rent' : '-') %></td>
+        <td><%= d.currentCar ? d.currentCar.plate : '-' %></td>
+        <td><span class="badge <%= d.status === 'ACTIVE' ? 'ok' : 'danger' %>"><%= d.status %></span></td>
+        <td>
+          <a class="btn secondary" href="/drivers/<%= d.id %>">View</a>
+          <a class="btn secondary" href="/drivers/<%= d.id %>/edit">Edit</a>
+          <form class="inline-form" method="POST" action="/drivers/<%= d.id %>?_method=DELETE" onsubmit="return confirm('Delete this driver?');">
+            <button class="btn danger" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+
+<%- include('../partials/foot') %>

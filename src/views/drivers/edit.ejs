@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+
+<h1>Edit Driver</h1>
+
+<div class="panel">
+  <form method="POST" action="/drivers/<%= driver.id %>?_method=PUT">
+    <div class="form-grid">
+      <div class="field"><label>Name</label><input name="name" value="<%= driver.name %>" required></div>
+      <div class="field"><label>Phone</label><input name="phone" value="<%= driver.phone || '' %>"></div>
+      <div class="field"><label>Email</label><input type="email" name="email" value="<%= driver.email || '' %>"></div>
+      <div class="field"><label>IBAN</label><input name="iban" value="<%= driver.iban || '' %>"></div>
+      <div class="field">
+        <label>Car is Owned or Rent</label>
+        <select name="carOwnership">
+          <option value="">-- select --</option>
+          <option value="OWNED" <%= driver.carOwnership === 'OWNED' ? 'selected' : '' %>>Owned Car</option>
+          <option value="RENT" <%= driver.carOwnership === 'RENT' ? 'selected' : '' %>>Rent</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Status</label>
+        <select name="status">
+          <option value="ACTIVE" <%= driver.status === 'ACTIVE' ? 'selected' : '' %>>Active</option>
+          <option value="INACTIVE" <%= driver.status === 'INACTIVE' ? 'selected' : '' %>>Inactive</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn" type="submit">Save Changes</button>
+      <a class="btn secondary" href="/drivers/<%= driver.id %>">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/foot') %>
